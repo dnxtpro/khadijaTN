@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    .text-dorado {
+      color: #c59b6b;
+    }
+    .bg-dorado {
+      background-color: #c59b6b;
+    }
+  }
+
+@layer components {
+    .team-member {
+      @apply flex flex-col text-center justify-center space-y-4 transition-all duration-300 hover:transform hover:scale-105;
+    }
+    
+    .team-member img {
+      @apply object-cover mx-auto rounded-xl shadow-xl transition-all duration-300 filter grayscale ;
+    }
+    
+    .team-member h2 {
+      @apply text-2xl font-light leading-tight text-white md:text-3xl hover:text-dorado transition-colors duration-300;
+    }
+  }
