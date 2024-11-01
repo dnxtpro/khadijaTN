@@ -96,13 +96,16 @@ function App() {
         <h2 >
           Khadija Tnana
         </h2>
+        <p className="text-dorado text-sm">
+        Artiste plasticienne et fondatrice
+        </p>
         <img src="khadija.png" className="object-cover mx-auto p-9 " alt="" />
         </div>  
         <div className=" col-start-1 team-member">
         <h2 >
           Mostafa Roumli
         </h2>
-        <p className="text-dorado text-sm">Professeure universitaire</p>
+        <p className="text-dorado text-sm">Artiste plasticien</p>
         
         <img src="mostafa.jpg" className="object-cover mx-auto p-9 " alt="" />
         </div>
@@ -110,28 +113,28 @@ function App() {
         <h2 >
          Abdelatif Bazzi
         </h2>
-        <p className="text-dorado text-sm">Professeure universitaire</p>
+        <p className="text-dorado text-sm">Critique de cinéma</p>
         <img src="place.png" className="object-cover mx-auto p-9 " alt="" />
         </div>
         <div className="team-member">
         <h2 >
           Hanan Chemcham
         </h2>
-        <p className="text-dorado text-sm">Professeure universitaire</p>
+        <p className="text-dorado text-sm">Femme d'affaires</p>
         <img src="place.png" className="object-cover mx-auto p-9 " alt="" />
         </div>
         <div className="team-member">
         <h2 >
           Imane Tnana
         </h2>
-        <p className="text-dorado text-sm">Professeure universitaire</p>
+        <p className="text-dorado text-sm">Pharmacienne</p>
         <img src="imanet.jpg" className="object-cover mx-auto p-9 grayscale " alt="" />
         </div>
         <div className="team-member">
         <h2 >
          Touda Lotfi
         </h2>
-        <p className="text-dorado text-sm">Professeure universitaire</p>
+        <p className="text-dorado text-sm">Femme d'affaires</p>
         <img src="place.png" className="object-cover mx-auto p-9 " alt="" />
         </div>
         <div className=" team-member">
