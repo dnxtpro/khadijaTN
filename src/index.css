@@ -1,27 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    .text-dorado {
-      color: #c59b6b;
-    }
-    .bg-dorado {
-      background-color: #c59b6b;
-    }
+  html {
+    font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Krona One', sans-serif;
+  }
+  .font-krona{
+    font-family: 'Krona One', sans-serif;
+  }
+  .font-inter{
+    font-family: 'Inter', sans-serif;
+
+  }
+
+  .text-dorado {
+    color: #c59b6b;
+  }
+  
+  .bg-dorado {
+    background-color: #c59b6b;
+  }
+}
 
 @layer components {
-    .team-member {
-      @apply flex flex-col text-center justify-center space-y-4 transition-all duration-300 hover:transform hover:scale-105;
-    }
-    
-    .team-member img {
-      @apply object-cover mx-auto rounded-xl shadow-xl transition-all duration-300 filter grayscale ;
-    }
-    
-    .team-member h2 {
-      @apply text-2xl font-light leading-tight text-white md:text-3xl hover:text-dorado transition-colors duration-300;
-    }
+  .team-member {
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-b from-black/20 to-black/90 transition-all duration-500;
   }
+  
+  .team-member-content {
+    @apply absolute inset-0 flex flex-col justify-end p-6 text-left opacity-0 transition-opacity duration-300;
+  }
+  
+  .team-member:hover .team-member-content {
+    @apply opacity-100;
+  }
+  
+  .team-member img {
+    @apply w-full h-[400px] object-cover transition-transform duration-500;
+  }
+  
+  .team-member:hover img {
+    @apply scale-110 grayscale-0;
+  }
+  
+  .team-member h2 {
+    @apply  text-2xl font-medium text-white mb-1;
+  }
+  
+  .team-member p {
+    @apply text-sm text-dorado ;
+  }
+}

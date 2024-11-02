@@ -4,6 +4,51 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { motion } from "framer-motion";
 
+const teamMembers = [
+  {
+    name: "Khadija Tnana",
+    role: "Artiste plasticienne et fondatrice",
+    image: "khadija.png",
+    gridCol: "md:col-start-2"
+  },
+  {
+    name: "Mostafa Roumli",
+    role: "Artiste plasticien",
+    image: "mostafa.jpg",
+    gridCol: "md:col-start-1"
+  },
+  {
+    name: "Abdelatif Bazzi",
+    role: "Critique de cinéma",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=60",
+    gridCol: ""
+  },
+  {
+    name: "Hanan Chamsam",
+    role: "Femme d'affaires",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&auto=format&fit=crop&q=60",
+    gridCol: ""
+  },
+  {
+    name: "Imane Tannane",
+    role: "Pharmacienne",
+    image: "imanet.jpg",
+    gridCol: ""
+  },
+  {
+    name: "Touda Lotfi",
+    role: "Femme d'affaires",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&auto=format&fit=crop&q=60",
+    gridCol: ""
+  },
+  {
+    name: "Meryem Tannane",
+    role: "Professeure universitaire",
+    image: "mariam.jpg",
+    gridCol: ""
+  }
+];
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -44,7 +89,7 @@ function App() {
             </h2>
           </div>
 
-          <img src="foto1.jpg" className="w-3/4 object-cover" alt="" />
+          <img src="foto1.jpg" className="max-w-96 object-cover mx-auto" alt="" />
         </div>
         <section className="py-24 md:py-32">
           <img
@@ -56,28 +101,29 @@ function App() {
         <div id="body1" className="grid grid-cols-2 items-center  mx-8 py-10 ">
           <img
             src="mujer.jpg"
-            className="h-full w-3/4 object-cover mx-auto "
+            className="h-full max-w-96 object-cover mx-auto "
             alt=""
           />
 
           <h2 className="text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
-            SOUTENIR LES TALENTS CREATIFS PROMOUVOIR LA CULTURE MAROCAINE, ET
+            SOUTENIR LES TALENTS CREATIFS{" "}
+            PROMOUVOIR LA CULTURE MAROCAINE, ET
             CELEBRER LA{" "}
-            <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
+            <span className="mt-2 block font-bold md:text-5xl lg:text-6xl bg-gradient-to-r from-amber-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
               DIVERSITE ARTISTIQUE
             </span>
           </h2>
         </div>
-        <div id="body1" className="grid grid-cols-2 items-center  mx-14 py-10 ">
-          <div className="space-y-4">
+        <div id="body1" className="grid grid-cols-2 items-center  mx-auto py-10 ">
+          <div className="space-y-4 text-center">
             <h2 className="text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
               ENCOURAGER LA
               <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
-                CREATIVITE FEMININE
+                CREATIVITE <span className="text-fuchsia-600">FEMININE</span> 
               </span>{" "}
               ET SOUTENIR LA
               <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
-                JEUNESSE ARTISTIQUE
+                <span className="text-fuchsia-600">JEUNESSE</span> ARTISTIQUE
               </span>
             </h2>
           </div>
@@ -86,68 +132,50 @@ function App() {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
           src="arriba.png"
-          className="h-full w-3/4 object-cover mx-auto rounded-xl shadow-2xl mt-8 md:mt-0"
+          className="h-full w-3/4 object-cover mx-auto rounded-xl shadow-2xl md:mt-0"
           alt="Youth art"
         />
         </div>
-        <div id="body1" className="grid grid-cols-3 items-center  mx-14 py-10 ">
-          
-        <div className="col-start-2  team-member">
-        <h2 >
-          Khadija Tnana
-        </h2>
-        <p className="text-dorado text-sm">
-        Artiste plasticienne et fondatrice
-        </p>
-        <img src="khadija.png" className="object-cover mx-auto p-9 " alt="" />
-        </div>  
-        <div className=" col-start-1 team-member">
-        <h2 >
-          Mostafa Roumli
-        </h2>
-        <p className="text-dorado text-sm">Artiste plasticien</p>
         
-        <img src="mostafa.jpg" className="object-cover mx-auto p-9 " alt="" />
-        </div>
-        <div className="team-member">
-        <h2 >
-         Abdelatif Bazzi
-        </h2>
-        <p className="text-dorado text-sm">Critique de cinéma</p>
-        <img src="place.png" className="object-cover mx-auto p-9 " alt="" />
-        </div>
-        <div className="team-member">
-        <h2 >
-          Hanan Chemcham
-        </h2>
-        <p className="text-dorado text-sm">Femme d'affaires</p>
-        <img src="place.png" className="object-cover mx-auto p-9 " alt="" />
-        </div>
-        <div className="team-member">
-        <h2 >
-          Imane Tnana
-        </h2>
-        <p className="text-dorado text-sm">Pharmacienne</p>
-        <img src="imanet.jpg" className="object-cover mx-auto p-9 grayscale " alt="" />
-        </div>
-        <div className="team-member">
-        <h2 >
-         Touda Lotfi
-        </h2>
-        <p className="text-dorado text-sm">Femme d'affaires</p>
-        <img src="place.png" className="object-cover mx-auto p-9 " alt="" />
-        </div>
-        <div className=" team-member">
-        <h2 >
-         Mariam Tnana
-        </h2>
-        <p className="text-dorado text-sm">Professeure universitaire</p>
-        <img src="mariam.jpg" className="object-cover mx-auto p-9  grayscale" alt="" />
-        </div>
-        
-          
-         
-        </div>
+
+        <section className="px-4 py-16 bg-black/50">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl font-playfair text-white text-center mb-16"
+          >
+            Notre Équipe
+          </motion.h2>
+          <div className="container mx-auto grid grid-cols md:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+         <motion.div
+         key={member.name}
+         initial={{ opacity: 0, y: 20 }}
+         whileInView={{ opacity: 1, y: 0 }}
+         transition={{ delay: index * 0.1, duration: 0.5 }}
+         className={`team-member ${member.gridCol}`}
+       >
+         <img
+           src={member.image}
+           alt={member.name}
+           className="grayscale"
+         />
+         <div className="team-member-content">
+           <div className="bg-gradient-to-t from-black/90 to-transparent absolute inset-0" />
+           <div className="relative">
+             <h2>{member.name}</h2>
+             <p>{member.role}</p>
+           </div>
+         </div>
+       </motion.div>
+              
+
+            ))}
+
+
+
+          </div>
+          </section>
       </div>
     </>
   );
