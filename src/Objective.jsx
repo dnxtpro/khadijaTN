@@ -1,30 +1,33 @@
-
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-
 const objectives = [
   {
     title: "ÉVÉNEMENTS ET RENCONTRES ARTISTIQUES",
-    description: "Organiser des festivals, rencontres, et expositions, individuelles et collectives, pour célébrer et promouvoir la créativité artistique."
+    description:
+      "Organiser des festivals, rencontres, et expositions, individuelles et collectives, pour célébrer et promouvoir la créativité artistique.",
   },
   {
     title: "ATELIERS ET SOUTIEN À LA FORMATION ARTISTIQUE",
-    description: "Proposer des ateliers de formation pour encourager l'apprentissage et l'épanouissement artistique, en particulier pour les jeunes et les femmes créatrices."
+    description:
+      "Proposer des ateliers de formation pour encourager l'apprentissage et l'épanouissement artistique, en particulier pour les jeunes et les femmes créatrices.",
   },
   {
     title: "PROMOTION DE LA CRÉATIVITÉ FÉMININE ET DES JEUNES TALENTS",
-    description: "Valoriser la création féminine et soutenir les jeunes talents dans leurs parcours artistiques."
+    description:
+      "Valoriser la création féminine et soutenir les jeunes talents dans leurs parcours artistiques.",
   },
   {
     title: "ÉCHANGES ET COOPÉRATIONS CULTURELLES",
-    description: "Favoriser les partenariats et échanges artistiques avec des associations et organisations à l'échelle nationale et internationale."
+    description:
+      "Favoriser les partenariats et échanges artistiques avec des associations et organisations à l'échelle nationale et internationale.",
   },
   {
     title: "DÉVELOPPEMENT ET VALORISATION DU PATRIMOINE ARTISTIQUE",
-    description: "Soutenir le développement du patrimoine artistique marocain en collaboration avec les institutions publiques pour renforcer la culture et l'image du Maroc."
-  }
+    description:
+      "Soutenir le développement du patrimoine artistique marocain en collaboration avec les institutions publiques pour renforcer la culture et l'image du Maroc.",
+  },
 ];
 
 export function ObjectiveSection() {
@@ -42,7 +45,7 @@ export function ObjectiveSection() {
 
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 ">
         {/* Left side - Details */}
-        <motion.div 
+        <motion.div
           className="relative h-[400px] bg-black/40 rounded-xl p-8 border border-dorado/20 shadow-[-12px_19px_20px_0px]"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -52,11 +55,11 @@ export function ObjectiveSection() {
               key={selectedIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              exit={{ opacity: 0, y: 0 }}
               transition={{ duration: 0.3 }}
               className="h-full flex flex-col justify-center"
             >
-              <div className="absolute top-8 left-8 w-12 h-12 bg-dorado text-white font-krona flex items-center justify-center rounded-full">
+              <div className="absolute top-12 w-12 h-12 bg-dorado text-white font-krona flex items-center justify-center rounded-full">
                 {selectedIndex + 1}
               </div>
               <h3 className="text-2xl font-krona text-white mb-6 mt-12">
@@ -67,7 +70,6 @@ export function ObjectiveSection() {
               </p>
             </motion.div>
           </AnimatePresence>
-          <div className="absolute bottom-0 left-0 w-full h-1 transform scale-x-100 transition-transform duration-300" />
         </motion.div>
 
         {/* Right side - List */}
@@ -79,27 +81,35 @@ export function ObjectiveSection() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
               className={`group cursor-pointer transition-all duration-300 ${
-                selectedIndex === index ? 'bg-dorado/20' : 'hover:bg-dorado/10'
+                selectedIndex === index ? "bg-dorado/20" : "hover:bg-dorado/10"
               }`}
               onClick={() => setSelectedIndex(index)}
               onHoverStart={() => setSelectedIndex(index)}
             >
               <div className="relative p-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <span className={`text-sm font-krona ${
-                    selectedIndex === index ? 'text-dorado' : 'text-white/60'
-                  }`}>
+                  <span
+                    className={`text-sm font-krona ${
+                      selectedIndex === index ? "text-dorado" : "text-white/60"
+                    }`}
+                  >
                     0{index + 1}
                   </span>
-                  <h3 className={`font-krona text-sm md:text-base ${
-                    selectedIndex === index ? 'text-dorado' : 'text-white/30'
-                  }`}>
+                  <h3
+                    className={`font-krona text-sm md:text-base ${
+                      selectedIndex === index ? "text-dorado" : "text-white/30"
+                    }`}
+                  >
                     {objective.title}
                   </h3>
                 </div>
-                <ChevronRight className={`w-4 h-4 transform transition-transform duration-300 ${
-                  selectedIndex === index ? 'text-dorado rotate-90' : 'text-dorado/60 group-hover:translate-x-1'
-                }`} />
+                <ChevronRight
+                  className={`w-4 h-4 transform transition-transform duration-300 ${
+                    selectedIndex === index
+                      ? "text-dorado rotate-90"
+                      : "text-dorado/60 group-hover:translate-x-1"
+                  }`}
+                />
               </div>
             </motion.div>
           ))}

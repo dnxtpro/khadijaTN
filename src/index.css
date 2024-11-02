@@ -54,7 +54,7 @@
     @apply w-full h-[400px] object-cover transition-transform duration-500;
   }
   
-  .team-member:hover img {
+  .team-member:hover, img {
     @apply scale-110 grayscale-0;
   }
   
