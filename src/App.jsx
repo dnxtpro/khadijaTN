@@ -2,8 +2,10 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { motion } from "framer-motion";
+import { motion,useScroll,useTransform, } from "framer-motion";
 import { ObjectiveSection } from "./Objective";
+import { useInView } from 'react-intersection-observer';
+
 
 const teamMembers = [
   {
@@ -76,11 +78,23 @@ const teamMembers = [
 
 function App() {
   const [count, setCount] = useState(0);
+  const {scrollY}=useScroll();
+  const y1 = useTransform(scrollY, [0,400], [0,400]);
+  const y2 = useTransform(scrollY, [0, 300], [0, -450]);
+  const y5 = useTransform(scrollY, [0, 300], [0, -650]);
+  const y3 = useTransform(scrollY, [200, 400], [0, -200]);
+  const x1 = useTransform(scrollY, [400, 600], [0, -500]);
+  
+  const [ref, inView, entry] = useInView({
+    threshold: 0.5,
+    triggerOnce: false
+  });
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-300 via-amber-300/50 to-black">
       <div className="w-full min-h-screen bg-black/80">
-        <header className="relative overflow-hidden py-24 md:py-32">
+        <motion.header className="relative overflow-hidden py-24 md:py-32 z-0" style={{ y: y1 }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,13 +113,15 @@ function App() {
               </div>
             </div>
           </motion.div>
-        </header>
+        </motion.header>
 
         <motion.div
+       
           id="body"
           className="grid grid-cols-2 items-center mx-8 px-4 gap-12"
         >
-          <div className="space-y-4">
+          <motion.div className="space-y-4"   style={{ y: y2 }}>
+            
             <h2 className="text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
               UN ESPACE DEDIE A{" "}
               <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
@@ -113,31 +129,32 @@ function App() {
               </span>{" "}
               ET A LA PROMOTION DE LA CREATIVITE AU MAROC
             </h2>
-          </div>
+          </motion.div>
 
           <motion.img
+            style={{ y: y5 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             src="foto1.jpg"
-            className="max-w-96 object-cover mx-auto"
+            className="max-w-96 object-cover mx-auto shadow-[-12px_19px_20px_0px] z-50"
             alt=""
           />
         </motion.div>
 
-        <section className="py-24 md:py-32">
-          <img
+        <motion.section style={{ y: y3 }} className="py-24 md:py-32">
+          <img 
             src="logot.svg"
             alt="Foundation logo"
             className="mx-auto h-32 w-auto md:h-40 lg:h-48"
           />
-        </section>
+        </motion.section>
 
-        <div id="body1" className="grid grid-cols-2 items-center mx-8 py-10">
+        <div id="body1" className="grid grid-cols-2 items-center mx-8 py-10 ">
           <motion.img
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             src="mujer.jpg"
-            className="h-full max-w-96 object-cover mx-auto"
+            className="h-full max-w-96 object-cover mx-auto shadow-[-12px_19px_20px_0px]"
             alt=""
           />
 

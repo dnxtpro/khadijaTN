@@ -40,10 +40,10 @@ export function ObjectiveSection() {
         Nos Objectifs
       </motion.h2>
 
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 ">
         {/* Left side - Details */}
         <motion.div 
-          className="relative h-[400px] bg-black/40 rounded-xl p-8 border border-dorado/20"
+          className="relative h-[400px] bg-black/40 rounded-xl p-8 border border-dorado/20 shadow-[-12px_19px_20px_0px]"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
         >
