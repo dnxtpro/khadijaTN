@@ -56,7 +56,7 @@ export function ObjectiveSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.5 }}
               className="h-full flex flex-col justify-center"
             >
               <div className="absolute top-12 w-12 h-12 bg-dorado text-white font-krona flex items-center justify-center rounded-full">
