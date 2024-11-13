@@ -9,6 +9,8 @@ import { Mail, Building } from "lucide-react";
 import Loading from "./Loading";
 import { useEffect } from "react";
 
+import ParticlesComponent from "./Background";
+
 const teamMembers = [
   {
     role1: "Fondatrice",
@@ -102,11 +104,17 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-300 via-amber-300/50 to-black">
+    <div className="min-h-screen bg-gradient-to-b from-amber-300 via-amber-300/50 to-black relative">
+      <ParticlesComponent id="particles"/>
+
+
       {isLoading ? (
         <Loading />
       ) : (
+        
         <div className="content">
+          
+          
           <div className="w-full min-h-screen bg-black/90">
             <motion.header
               className="relative overflow-hidden py-24 md:py-32 z-30"

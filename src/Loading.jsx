@@ -8,6 +8,7 @@ const Loading = () => {
   return (
     <>
       <div className="w-full min-h-screen bg-black/90 overflow-hidden">
+      
         <motion.div
           animate={{ opacity: 0 }}
           transition={{ duration: 1.5, delay: 3.5 }}
