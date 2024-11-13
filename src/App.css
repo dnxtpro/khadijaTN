@@ -4,3 +4,24 @@
 .bg-dorado{
   background-color:#c59b6b;
 }
+#gold-icon {
+  /* Agrega un sutil resplandor con drop-shadow */
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.3));
+  /* Aplica una animación suave */
+  animation: subtle-glow 15s ease-in-out infinite;
+}
+
+@keyframes subtle-glow {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+  }
+  75% {
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.3)) drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 12px rgba(255, 215, 0, 0.2));
+  }
+}
