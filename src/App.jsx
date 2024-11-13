@@ -13,7 +13,7 @@ const teamMembers = [
     name: "Khadija Tnana",
     role: "Artiste plasticienne et dramaturge",
     image: "khadija.png",
-    gridCol: "md:col-start-2",
+    gridCol: "md:col-start-2 col-start-1",
     born: "Née à Tétouan",
     details: "Artiste engagée dans la féminité et les injustices sociales.",
   },
@@ -54,16 +54,7 @@ const teamMembers = [
     born: "",
     details: " Directrice Générale chez TALIS CONSEIL ",
   },
-  {
-    role1: "",
-    name: "",
-    role: "",
-    image:
-      "logot.svg",
-    gridCol: "",
-    born: "",
-    details: "",
-  },
+ 
   {
     role1: "Conseillére",
     name: "Mariam Tnana",
@@ -122,7 +113,7 @@ function App() {
 
         <motion.div
           id="body"
-          className="grid grid-cols-2  items-center mx-8 px-4 gap-12"
+          className="grid md:grid-cols-2 grid-cols-1  items-center mx-8 px-4 gap-12"
         >
           <motion.div
             className="space-y-4 z-0"
@@ -142,7 +133,7 @@ function App() {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             src="lokete.png"
-            className="max-w-96 object-cover mx-auto shadow-[-12px_19px_20px_0px] z-50"
+            className="md:max-w-96 max-w-72 object-cover mx-auto shadow-[-12px_19px_20px_0px] z-50"
             alt=""
           />
         </motion.div>
@@ -152,12 +143,12 @@ function App() {
             <img
               src="logot.svg"
               alt="Foundation logo"
-              className="mx-auto h-32 w-auto md:h-40 lg:h-64"
+              className="mx-auto h-40 w-auto md:h-40 lg:h-64"
             />
             <div className="absolute top-full h-full  w-full transform rotate-180    opacity-50 mt-4 z-50 ">
               {" "}
               {/* Aumenta el margen superior aquí */}
-              <div className="relative mx-auto h-32 w-auto md:h-40 lg:h-64 overflow-hidden">
+              <div className="relative mx-auto h-40 w-auto md:h-40 lg:h-64 overflow-hidden">
                 <img
                   src="logot.svg"
                   alt="Foundation logo"
@@ -176,14 +167,14 @@ function App() {
 
         <div
           id="body1"
-          className="grid grid-cols-2  items-center mx-8 py-10 overflow-hidden "
+          className="grid md:grid-cols-2 grid-cols-1 overflow-x-hidden items-center mx-8 px-4 gap-12 "
         >
           <motion.img
             style={{ x: x1 }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             src="mujer.jpg"
-            className="h-full max-w-96 object-cover mx-auto shadow-[-12px_19px_20px_0px]"
+            className="h-full md:max-w-96 max-w-72 object-cover mx-auto shadow-[-12px_19px_20px_0px]"
             alt=""
           />
 
@@ -202,7 +193,7 @@ function App() {
         <motion.div
           style={{ opacity: opa }}
           id="body1"
-          className="grid grid-cols-2 items-center mx-auto py-10"
+          className="grid md:grid-cols-2 space-y-8 items-center mx-auto py-10"
         >
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
@@ -242,7 +233,7 @@ function App() {
           >
             Notre Équipe
           </motion.h2>
-          <div className="container mx-auto grid grid-cols md:grid-cols-3 gap-8 mon">
+          <div className="container mx-auto md:grid flex flex-col md:grid-cols-3 space-y-8 gap-8 mon">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}

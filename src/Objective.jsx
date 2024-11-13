@@ -11,7 +11,7 @@ const objectives = [
   {
     title: "ATELIERS ET SOUTIEN À LA FORMATION ARTISTIQUE",
     description:
-      "Proposer des ateliers de formation pour encourager l'apprentissage et l'épanouissement artistique, en particulier pour les jeunes et les femmes créatrices.",
+      "Proposer des ateliers de formation pour encourager l'apprentissage et l'épanouisse ment artistique, en particulier pour les jeunes et les femmes créatrices.",
   },
   {
     title: "PROMOTION DE LA CRÉATIVITÉ FÉMININE ET DES JEUNES TALENTS",
