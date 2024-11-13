@@ -69,6 +69,7 @@ const teamMembers = [
 ];
 
 function App() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [count, setCount] = useState(0);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 400], [0, 400]);
@@ -78,10 +79,16 @@ function App() {
   const y5 = useTransform(scrollY, [0, 300], [0, -650]);
   const y3 = useTransform(scrollY, [200, 600], [0, -300]);
   const x1 = useTransform(scrollY, [1500, 1700], [0, -700]);
-  const x2 = useTransform(scrollY, [1500, 1700], [0, 1000]);
+  const x2 = useTransform(scrollY, [1400, 1800], [0, 2000]);
   const opa = useTransform(scrollY, [1700, 1800], [0, 1]);
 
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     // Simula un retraso en la carga o espera hasta que se cumplan condiciones específicas
@@ -181,20 +188,22 @@ function App() {
 
             <div
               id="body1"
-              className="grid md:grid-cols-2 grid-cols-1 overflow-x-hidden items-center mx-8 px-4 gap-12 "
+              className="flex md:flex-row flex-col overflow-x-hidden items-center mx-8 px-4 gap-12 "
             >
               <motion.img
-                style={{ x: x1 }}
+                style={{ x: isMobile ? 0 : x1  }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 src="mujer.jpg"
-                className="h-full md:max-w-96 max-w-72 object-cover mx-auto shadow-[-12px_19px_20px_0px]"
+                className="h-full order-2 z-40 md:order-2 md:max-w-96 max-w-72 object-cover mx-auto shadow-[-12px_19px_20px_0px]"
                 alt=""
               />
 
               <motion.h2
-                style={{ x: x2 }}
-                className="text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl"
+              style={{
+              x: isMobile ? 0 : x2, // En móviles, x es fijo (0); en pantallas grandes, x2 es dinámico
+               }}
+                className="text-3xl z-30 order-1 font-light leading-tight text-white md:text-4xl lg:text-5xl"
               >
                 SOUTENIR LES TALENTS CREATIFS PROMOUVOIR LA CULTURE MAROCAINE,
                 ET CELEBRER LA{" "}
