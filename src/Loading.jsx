@@ -10,7 +10,7 @@ const Loading = () => {
       <div className="w-full min-h-screen bg-black/90 overflow-hidden">
       
         <motion.div
-          animate={{ opacity: 0 }}
+          animate={{opacity:0}}
           transition={{ duration: 1.5, delay: 3.5 }}
           className="w-full h-screen flex flex-col md:flex-row justify-around items-center"
         >
@@ -42,11 +42,12 @@ const Loading = () => {
           </div>
 
           <motion.div
+          className="items-center flex"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 2 }}
             transition={{ duration: 1.5, delay: 0 }}
           >
-            <SvgComponent />
+            <SvgComponent className="h-1/2 md:h-full " />
           </motion.div>
 
           <div className=" py-24 md:py-32 z-30">

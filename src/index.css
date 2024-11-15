@@ -12,6 +12,10 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Krona One', sans-serif;
   }
+  h1::selection , h2::selection, h3::selection, h4::selection, h5::selection, h6::selection,span::selection {
+    background-color: #c59b6b; /* Fondo verde */
+    color: white; /* Texto blanco */
+  }
   .font-krona{
     font-family: 'Krona One', sans-serif;
   }

@@ -4,30 +4,26 @@ import { useState } from "react";
 
 const objectives = [
   {
-    title: "ÉVÉNEMENTS ET RENCONTRES ARTISTIQUES",
-    description:
-      "Organiser des festivals, rencontres, et expositions, individuelles et collectives, pour célébrer et promouvoir la créativité artistique.",
+    title: "FESTIVALS ET EXPOSITIONS",
+    description: "Créer des moments uniques pour mettre en lumière l'art sous toutes ses formes, en organisant des expositions et événements qui rassemblent les artistes et le public."
   },
   {
-    title: "ATELIERS ET SOUTIEN À LA FORMATION ARTISTIQUE",
-    description:
-      "Proposer des ateliers de formation pour encourager l'apprentissage et l'épanouisse ment artistique, en particulier pour les jeunes et les femmes créatrices.",
+    title: "FORMATIONS CRÉATIVES ET ATELIERS",
+    description: "Offrir des opportunités d’apprentissage et de pratique artistique à travers des ateliers conçus pour éveiller la créativité, notamment chez les femmes et les jeunes."
   },
   {
-    title: "PROMOTION DE LA CRÉATIVITÉ FÉMININE ET DES JEUNES TALENTS",
-    description:
-      "Valoriser la création féminine et soutenir les jeunes talents dans leurs parcours artistiques.",
+    title: "SOUTIEN AUX FEMMES ARTISTES ET JEUNES TALENTS",
+    description: "Donner une voix aux femmes dans la création artistique et fournir un accompagnement personnalisé pour révéler les talents émergents."
   },
   {
-    title: "ÉCHANGES ET COOPÉRATIONS CULTURELLES",
-    description:
-      "Favoriser les partenariats et échanges artistiques avec des associations et organisations à l'échelle nationale et internationale.",
+    title: "PARTENARIATS ET RÉSEAUX ARTISTIQUES",
+    description: "Établir des ponts entre les acteurs culturels à l’échelle nationale et internationale, pour enrichir les pratiques artistiques par le dialogue et la collaboration."
   },
   {
-    title: "DÉVELOPPEMENT ET VALORISATION DU PATRIMOINE ARTISTIQUE",
-    description:
-      "Soutenir le développement du patrimoine artistique marocain en collaboration avec les institutions publiques pour renforcer la culture et l'image du Maroc.",
-  },
+    title: "ART ET VALEURS HUMAINES",
+    description: "Faire de l’art un outil de transformation sociale, promouvant des valeurs telles que la tolérance, la modernité et l’harmonie collective, tout en valorisant le patrimoine marocain."
+  }
+  
 ];
 
 export function ObjectiveSection() {

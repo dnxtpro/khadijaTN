@@ -9,6 +9,7 @@ import { Mail, Building } from "lucide-react";
 import Loading from "./Loading";
 import { useEffect } from "react";
 
+
 import ParticlesComponent from "./Background";
 
 const teamMembers = [
@@ -16,7 +17,7 @@ const teamMembers = [
     role1: "Fondatrice",
     name: "Khadija Tnana",
     role: "Artiste plasticienne et dramaturge",
-    image: "khadija.png",
+    image: "khadija.jpg",
     gridCol: "md:col-start-2 col-start-1",
     born: "Née à Tétouan",
     details: "Artiste engagée dans la féminité et les injustices sociales.",
@@ -112,10 +113,14 @@ function App() {
         <Loading />
       ) : (
         
-        <div className="content">
+        <div className="content bg-black/90">
           
           
-          <div className="w-full min-h-screen bg-black/90">
+          <motion.div
+          initial={{opacity:0}}
+          animate={{opacity:1}}
+          transition={{duration:1}}
+          className="w-full min-h-screen ">
             <motion.header
               className="relative overflow-hidden py-24 md:py-32 z-30"
               style={{ y: y1 }}
@@ -149,11 +154,11 @@ function App() {
                 style={{ y: y2, opacity: opas }}
               >
                 <h2 className="text-3xl  font-light leading-tight text-white md:text-4xl lg:text-5xl">
-                  UN ESPACE DEDIE A{" "}
+                  UN ESPACE DÉDIÉ  À {" "}
                   <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
-                    l&apos;ECHANGE
+                    l&apos;ÉCHANGE 
                   </span>{" "}
-                  ET A LA PROMOTION DE LA CREATIVITE AU MAROC
+                  ET À  LA PROMOTION DE LA CRÉATIVITÉ AU MAROC
                 </h2>
               </motion.div>
 
@@ -213,10 +218,10 @@ function App() {
                }}
                 className="text-3xl z-30 order-1 font-light leading-tight text-white md:text-4xl lg:text-5xl"
               >
-                SOUTENIR LES TALENTS CREATIFS PROMOUVOIR LA CULTURE MAROCAINE,
-                ET CELEBRER LA{" "}
-                <span className="mt-2 block font-bold md:text-5xl lg:text-6xl bg-gradient-to-r from-amber-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
-                  DIVERSITE ARTISTIQUE
+                SOUTENIR LES TALENTS CRÉATIFS PROMOUVOIR LA CULTURE MAROCAINE,
+                ET CÉLÉBRER LA{" "}
+                <span className="text-dorado">
+                DIVERSITÉ ARTISTIQUE
                 </span>
               </motion.h2>
             </div>
@@ -230,17 +235,17 @@ function App() {
                 <h2 className="text-3xl font-light leading-tight text-white md:text-4xl lg:text-5xl">
                   ENCOURAGER LA
                   <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
-                    CREATIVITE{" "}
-                    <span className="bg-gradient-to-r from-amber-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
+                  CRÉATIVITÉ{" "}
+                   
                       FEMININE
-                    </span>
+                    
                   </span>{" "}
                   ET SOUTENIR LA
                   <span className="mt-2 block font-bold text-dorado md:text-5xl lg:text-6xl">
-                    <span className="bg-gradient-to-r from-amber-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
+                    
                       JEUNESSE
-                    </span>{" "}
-                    ARTISTIQUE
+                    
+                      ARTISTIQUE
                   </span>
                 </h2>
               </div>
@@ -248,8 +253,8 @@ function App() {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                src="arriba.png"
-                className="h-full w-3/4 object-cover mx-auto rounded-xl shadow-2xl md:mt-0"
+                src="mujertumbada.jpg"
+                className="order-2 z-40 md:order-2 md:max-w-full max-w-72 object-cover mx-auto shadow-[-12px_19px_20px_0px]"
                 alt="Youth art"
               />
             </motion.div>
@@ -323,9 +328,28 @@ function App() {
                     <span>© Nervacom</span>
                   </div>
                 </div>
+                <div className="flex  items-end md:flex-row md:justify-end md:space-x-4 mt-4 text-gray-400">
+                  {/* Información del desarrollador */}
+                  <div className="flex space-x-2">
+                    <span>Developed by Ilias Afailal</span>
+                    <a
+                      href="mailto:contact@nervacom.com"
+                      className="flex items-center space-x-1 hover:underline"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>contact@nervacom.com</span>
+                    </a>
+                  </div>
+
+                  {/* Empresa */}
+                  <div className="flex items-center space-x-2 mt-2 md:mt-0">
+                    <Building className="w-4 h-4 text-gray-400" />
+                    <span>© Nervacom</span>
+                  </div>
+                </div>
               </div>
             </footer>
-          </div>
+          </motion.div>
         </div>
       )}
     </div>
