@@ -218,7 +218,7 @@ function App() {
                }}
                 className="text-3xl z-30 order-1 font-light leading-tight text-white md:text-4xl lg:text-5xl"
               >
-                SOUTENIR LES TALENTS CRÉATIFS PROMOUVOIR LA CULTURE MAROCAINE,
+                SOUTENIR LES TALENTS CRÉATIFS, PROMOUVOIR LA CULTURE MAROCAINE,
                 ET CÉLÉBRER LA{" "}
                 <span className="text-dorado">
                 DIVERSITÉ ARTISTIQUE

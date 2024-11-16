@@ -21,7 +21,7 @@ const objectives = [
   },
   {
     title: "ART ET VALEURS HUMAINES",
-    description: "Faire de l’art un outil de transformation sociale, promouvant des valeurs telles que la tolérance, la modernité et l’harmonie collective, tout en valorisant le patrimoine marocain."
+    description: "Faire de l’art un outil de transformation sociale,en promouvant des valeurs telles que la tolérance, la modernité et l’harmonie collective, tout en valorisant le patrimoine marocain."
   }
   
 ];
