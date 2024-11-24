@@ -19,8 +19,8 @@ const teamMembers = [
     role: "Artiste plasticienne et dramaturge",
     image: "khadija.jpg",
     gridCol: "md:col-start-2 col-start-1",
-    born: "Née à Tétouan",
-    details: "Artiste engagée dans la féminité et les injustices sociales.",
+    born: " ",
+    details: "",
   },
   {
     role1: "Premier Vice Président",
@@ -133,10 +133,10 @@ function App() {
               >
                 <div className="text-center text-white  bg-[#191508]  ">
                   <h1 className="mb-2 text-4xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-6xl">
-                    FONDATION
+                     Khadija Tnana
                   </h1>
                   <h2 className="text-2xl font-medium text-dorado md:text-3xl lg:text-4xl">
-                    Khadija Tnana
+                  FONDATION 
                   </h2>
                   <div className="mt-8 flex justify-center">
                     <div className="h-1 w-16 bg-dorado"></div>
@@ -166,7 +166,7 @@ function App() {
                 style={{ y: y5 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                src="lokete.png"
+                src="hero.jpg"
                 className="md:max-w-96 max-w-72 object-cover mx-auto shadow-[-12px_19px_20px_0px] z-50"
                 alt=""
               />
