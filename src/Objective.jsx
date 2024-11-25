@@ -85,14 +85,14 @@ export function ObjectiveSection() {
               <div className="relative p-4 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <span
-                    className={`text-sm font-krona ${
+                    className={`text-sm font-krona text- ${
                       selectedIndex === index ? "text-dorado" : "text-white/60"
                     }`}
                   >
                     0{index + 1}
                   </span>
                   <h3
-                    className={`font-krona text-sm md:text-base ${
+                    className={`font-krona text-sm md:text-3xl ${
                       selectedIndex === index ? "text-dorado" : "text-white/30"
                     }`}
                   >

@@ -137,10 +137,10 @@ function App() {
               >
                 <div className="text-center text-white  bg-[#191508]  ">
                   <h1 className="mb-2 text-4xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-6xl">
-                    Khadija Tnana
+                    KhadijaTnana
                   </h1>
                   <h2 className="text-2xl font-medium text-dorado md:text-3xl lg:text-4xl">
-                    FONDATION
+                   Fondation
                   </h2>
                   <div className="mt-8 flex justify-center">
                     <div className="h-1 w-16 bg-dorado"></div>

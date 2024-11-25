@@ -23,7 +23,7 @@ const Loading = () => {
                   transition={{ duration: 0.8, delay: 1 }}
                   className="mb-2 text-4xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-6xl"
                 >
-                  FONDATION
+                  KHADIJA TNANA
                 </motion.h1>
                 <motion.h2
                   initial={{ opacity: 0 }}
@@ -31,7 +31,7 @@ const Loading = () => {
                   transition={{ duration: 1.5, delay: 2 }}
                   className="text-2xl font-medium text-dorado md:text-3xl lg:text-2xl"
                 >
-                  Khadija Tnana pour la culture et les arts
+                  fondation pour la culture et les arts
                 </motion.h2>
                 <h2 className="text-2xl font-medium text-dorado md:text-3xl lg:text-4xl"></h2>
                 <div className="mt-8 flex justify-center">
@@ -59,7 +59,7 @@ const Loading = () => {
                   transition={{ duration: 0.8, delay: 1 }}
                   className="mb-2 text-8xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-8xl"
                 >
-                  مؤسسة
+               خديجة طنانة
                 </motion.h1>
                 <motion.h2
                   initial={{ opacity: 0 }}
@@ -67,7 +67,8 @@ const Loading = () => {
                   transition={{ duration: 1.5, delay: 2 }}
                   className="text-4xl font-medium text-dorado md:text-3xl lg:text-6xl"
                 >
-                  خديجة طنانة للثقافة والفن
+                     مؤسسة
+                   للثقافة والفن
                 </motion.h2>
 
                 <div className="mt-8 flex justify-center">
