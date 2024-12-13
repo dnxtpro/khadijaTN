@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ObjectiveSection } from "./Objective";
 import { useInView } from "react-intersection-observer";
-import { Mail, Building } from "lucide-react";
+import { Mail, Building, Phone, Home, ShieldPlus, Eye } from "lucide-react";
 import Loading from "./Loading";
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -20,7 +20,7 @@ const teamMembers = [
     image: "khadija.jpg",
     gridCol: "md:col-start-2 col-start-1",
     born: " ",
-    details: "",
+    details: "Née à Tétouan, ancienne professeure en sciences politiques,Présidente de la Fondation Khadija Tnana pour la culture et les arts,Membre de l'Association marocaine des arts plastiques,Ancienne adjointe au maire de la ville de Fès,Ancienne membre du conseil administratif des festivals des pays arabes.Œuvres : Tata Mbarka, Louiza, Najat, Le Mur, et Hlima.",
   },
   {
     role1: "Premier Vice Président",
@@ -29,7 +29,7 @@ const teamMembers = [
     image: "mostafa.jpg",
     gridCol: "md:col-start-1",
     born: "Née à Touissit",
-    details: "Commissaire de nombreuses expositions",
+    details: "CCommissaire de nombreuses expositions, Directeur fondateur de la Biennale Internationale de Casa Maroc, Directeur général du magazine Art du Maroc et Fondateur de la résidence Ifitry.",
   },
 
   {
@@ -74,10 +74,11 @@ const teamMembers = [
 ];
 
 function App() {
+  const sectionRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [count, setCount] = useState(0);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 400], [0, 400]);
+  const y1 = useTransform(scrollY, [0, 400, 600, 1700], [0, 400, 500, 1600]);
   const opas = useTransform(scrollY, [0, 200], [1, 0]);
   const y2 = useTransform(scrollY, [0, 300], [0, -450]);
 
@@ -105,6 +106,32 @@ function App() {
     const timer = setTimeout(() => setIsLoading(false), 5000); // Cambia el tiempo según prefieras
     return () => clearTimeout(timer);
   }, []);
+  const scrollToSection = () => {
+    const target = sectionRef.current;
+    if (!target) return;
+
+    const targetPosition = target.offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 1000; // Duración en ms
+    const startTime = performance.now();
+
+    // Función de animación
+    const animateScroll = (currentTime) => {
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1); // Asegurarse de que no pase de 1
+      const scrollAmount = startPosition + distance * progress;
+
+      window.scrollTo(0, scrollAmount);
+
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    // Iniciar la animación
+    requestAnimationFrame(animateScroll);
+  };
 
   const [ref, inView, entry] = useInView({
     threshold: 0.5,
@@ -133,17 +160,37 @@ function App() {
                 initial={{ opacity: 0.5, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="relative  container mx-auto px-4"
+                className="relative flex flex-row md:justify-center justify-between md:space-x-64 container mx-auto px-4"
               >
+                <div className="text-center text-white  bg-[#191508]  ">
+                  <button onClick={scrollToSection}>
+                    <h2 className="text-2xl font-medium text-dorado md:text-3xl lg:text-4xl">
+                      Notre Équipe
+                    </h2>
+                  </button>
+                  <div className="mt-2 flex justify-center">
+                    <div className="h-1 w-16 bg-dorado"></div>
+                  </div>
+                </div>
                 <div className="text-center text-white  bg-[#191508]  ">
                   <h1 className="mb-2 text-4xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-6xl">
                     KhadijaTnana
                   </h1>
                   <h2 className="text-2xl font-medium text-dorado md:text-3xl lg:text-4xl">
-                   Fondation
+                    Fondation
                   </h2>
                   <div className="mt-8 flex justify-center">
                     <div className="h-1 w-16 bg-dorado"></div>
+                  </div>
+                </div>
+                <div className="text-center text-white  bg-[#191508]  ">
+                  <a className="pointer-events-none" href="">
+                    <h2 className="text-2xl font-medium text-gray-600 md:text-3xl lg:text-4xl ">
+                      À propos
+                    </h2>
+                  </a>
+                  <div className="mt-2 flex justify-center">
+                    <div className="h-1 w-16 bg-gray-600"></div>
                   </div>
                 </div>
               </motion.div>
@@ -257,10 +304,21 @@ function App() {
 
             <ObjectiveSection />
 
-            <section className="px-4 py-16 relative bg-black min-h-screen">
-              <h2 className="text-4xl font-playfair text-white text-center mb-16">
+            <section
+              ref={sectionRef}
+              className="px-4 py-16 relative bg-black min-h-screen"
+            >
+              <div className="flex flex-col justify-center">
+
+              <h2 className="text-4xl font-playfair text-white text-center mb-4">
                 Notre Équipe
               </h2>
+              <p className=" font-playfair text-white flex items-center mx-auto space-x-1 text-center mb-12">
+                <Eye className="w-4 h-4" />
+                <span>Cliquez sur nos membres pour plus d'informations. </span>
+              </p>
+              </div>
+
               <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 relative">
                 {teamMembers.map((member, index) => (
                   <motion.div
@@ -360,9 +418,48 @@ function App() {
                 <p className="text-gray-400">
                   © 2024 Fondation Khadija Tnana. Tous droits réservés.
                 </p>
-                <div className="flex flex-col items-center md:flex-row md:justify-center md:space-x-4 mt-4 text-gray-400">
+                <div className="flex  items-start md:flex-row md:justify-between md:space-x-4 mt-4 mx-auto text-gray-400">
                   {/* Información del desarrollador */}
-                  <div className="flex items-center space-x-2">
+                  <div className="flex flex-col items-center space-x-2">
+                    <span>Contact</span>
+                    <div className="h-1 mb-4 w-10/12 bg-slate-500"></div>
+                    <a
+                      href="tel:+212 661082292"
+                      className="flex items-center space-x-1 hover:underline"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span>0661082292</span>
+                    </a>
+                    <a
+                      href="mailto:k@tnana.ma"
+                      className="flex items-center space-x-1 hover:underline"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span>k@tnana.ma</span>
+                    </a>
+                  </div>
+                  <div className="flex flex-col items-center space-x-2">
+                    <span>Liens</span>
+                    <div className="h-1 mb-4 w-10/12 bg-slate-500"></div>
+                    <a
+                      href=""
+                      className="flex items-center space-x-1 hover:underline"
+                    >
+                      <Home className="w-4 h-4" />
+                      <span>Page Principale</span>
+                    </a>
+                    <a
+                      href=""
+                      className="flex items-center space-x-1 hover:underline"
+                    >
+                      <ShieldPlus className="w-4 h-4" />
+                      <span>À propos</span>
+                    </a>
+                  </div>
+
+                  {/* Empresa */}
+
+                  <div className="flex flex-col space-x-2">
                     <span>Developed by Ilias Afailal</span>
                     <a
                       href="mailto:contact@nervacom.com"
@@ -371,31 +468,12 @@ function App() {
                       <Mail className="w-4 h-4" />
                       <span>contact@nervacom.com</span>
                     </a>
-                  </div>
 
-                  {/* Empresa */}
-                  <div className="flex items-center space-x-2 mt-2 md:mt-0">
-                    <Building className="w-4 h-4 text-gray-400" />
-                    <span>© Nervacom</span>
-                  </div>
-                </div>
-                <div className="flex  items-end md:flex-row md:justify-end md:space-x-4 mt-4 text-gray-400">
-                  {/* Información del desarrollador */}
-                  <div className="flex space-x-2">
-                    <span>Developed by Ilias Afailal</span>
-                    <a
-                      href="mailto:contact@nervacom.com"
-                      className="flex items-center space-x-1 hover:underline"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span>contact@nervacom.com</span>
-                    </a>
-                  </div>
-
-                  {/* Empresa */}
-                  <div className="flex items-center space-x-2 mt-2 md:mt-0">
-                    <Building className="w-4 h-4 text-gray-400" />
-                    <span>© Nervacom</span>
+                    {/* Empresa */}
+                    <div className="flex items-center space-x-2 mt-2 md:mt-0">
+                      <Building className="w-4 h-4 text-gray-400" />
+                      <span>© Nervacom</span>
+                    </div>
                   </div>
                 </div>
               </div>
