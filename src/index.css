@@ -5,8 +5,16 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --motion-fast: 150ms;
+    --motion-normal: 300ms;
+    --motion-slow: 500ms;
+    --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   html {
     font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -24,6 +32,10 @@
   .font-inter{
     font-family: 'Inter', sans-serif;
 
+  }
+  .font-italica{
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
   }
 
   .text-dorado {
@@ -48,11 +60,17 @@
 
 @layer components {
   .team-member {
-    @apply relative overflow-hidden rounded-2xl bg-gradient-to-b from-black/20 to-black/90 transition-all duration-500;
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-b from-black/20 to-black/90;
+    transition-property: transform, opacity, box-shadow;
+    transition-duration: var(--motion-slow);
+    transition-timing-function: var(--motion-ease);
   }
   
   .team-member-content {
-    @apply absolute inset-0 flex flex-col justify-end p-6 text-left opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 flex flex-col justify-end p-6 text-left opacity-0;
+    transition-property: opacity, transform;
+    transition-duration: var(--motion-normal);
+    transition-timing-function: var(--motion-ease);
   }
   
   .team-member:hover .team-member-content {
@@ -60,7 +78,10 @@
   }
   
   .team-member img {
-    @apply w-full h-[400px] object-cover transition-transform duration-500;
+    @apply w-full h-[400px] object-cover;
+    transition-property: transform, filter;
+    transition-duration: var(--motion-slow);
+    transition-timing-function: var(--motion-ease);
   }
   
   .team-member:hover img {
@@ -88,7 +109,10 @@
   }
 
   .team-member-description {
-    @apply mt-2 text-white text-sm opacity-0 transition-opacity duration-300;
+    @apply mt-2 text-white text-sm opacity-0;
+    transition-property: opacity;
+    transition-duration: var(--motion-normal);
+    transition-timing-function: var(--motion-ease);
   }
 
   .team-member.expanded .team-member-description {
@@ -113,6 +137,21 @@
       #c59b6b 60%,
       transparent 90%
     );
+  }
+
+  .motion-standard {
+    transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+    transition-duration: var(--motion-normal);
+    transition-timing-function: var(--motion-ease);
+    will-change: transform, opacity;
+  }
+
+  .motion-fast {
+    transition-duration: var(--motion-fast);
+  }
+
+  .motion-slow {
+    transition-duration: var(--motion-slow);
   }
   
   

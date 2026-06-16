@@ -2,20 +2,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import SvgComponent from "./logo";
 
-const box = document.getElementById("gold-icon");
-
 const Loading = () => {
   return (
     <>
-      <div className="w-full min-h-screen bg-black/90 overflow-hidden">
+      <div className="w-full min-h-screen bg-black/90 overflow-hidden px-4">
       
         <motion.div
           animate={{opacity:0}}
           transition={{ duration: 1.5, delay: 3.5 }}
-          className="w-full h-screen flex flex-col md:flex-row justify-around items-center"
+          className="flex h-screen w-full flex-col items-center justify-center gap-12 py-10 md:flex-row md:justify-around"
         >
-          <div className=" py-24 md:py-32 z-30">
-            <motion.div className="relative  container mx-auto px-4">
+          <div className="z-30 py-4 md:py-32">
+            <motion.div className="relative container mx-auto px-4">
               <div className="text-center text-white">
                 <motion.h1
                   initial={{ opacity: 0, x: -2000 }}
@@ -29,11 +27,10 @@ const Loading = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1.5, delay: 2 }}
-                  className="text-2xl font-medium text-dorado md:text-3xl lg:text-2xl"
+                  className="text-lg font-medium text-dorado md:text-3xl lg:text-2xl"
                 >
                   fondation pour la culture et les arts
                 </motion.h2>
-                <h2 className="text-2xl font-medium text-dorado md:text-3xl lg:text-4xl"></h2>
                 <div className="mt-8 flex justify-center">
                   <div className="h-1 w-16 bg-dorado"></div>
                 </div>
@@ -42,22 +39,22 @@ const Loading = () => {
           </div>
 
           <motion.div
-          className="items-center flex"
+          className="flex items-center justify-center"
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 2 }}
+            animate={{ opacity: 1, scale: 1.6 }}
             transition={{ duration: 1.5, delay: 0 }}
           >
-            <SvgComponent className="h-1/2 md:h-full " />
+            <SvgComponent className="h-48 w-auto md:h-72" />
           </motion.div>
 
-          <div className=" py-24 md:py-32 z-30">
-            <motion.div className="relative  container mx-auto px-4">
+          <div className="z-30 py-4 md:py-32">
+            <motion.div className="relative container mx-auto px-4">
               <div className="text-center text-white">
                 <motion.h1
                   initial={{ opacity: 0, x: 2000 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 1 }}
-                  className="mb-2 text-8xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-8xl"
+                  className="mb-2 text-4xl font-bold tracking-tight text-gray-100 md:text-5xl lg:text-8xl"
                 >
                خديجة طنانة
                 </motion.h1>
@@ -65,7 +62,7 @@ const Loading = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1.5, delay: 2 }}
-                  className="text-4xl font-medium text-dorado md:text-3xl lg:text-6xl"
+                  className="text-xl font-medium text-dorado md:text-3xl lg:text-6xl"
                 >
                      مؤسسة
                    للثقافة والفن

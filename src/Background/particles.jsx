@@ -4,9 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
-
-
-
 const ParticlesComponent = (props) => {
 
   const [init, setInit] = useState(false);
@@ -25,11 +22,6 @@ const ParticlesComponent = (props) => {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
-
-
   const options = useMemo(
     () => ({
       background: {
@@ -37,36 +29,13 @@ const ParticlesComponent = (props) => {
           value: "transparent",
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 60,
       interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: ["repulse", "bubble"] // Efectos al pasar el ratón: "repulse" y "bubble"
-          },
-          onclick: {
-            enable: true,
-            mode: "push"
-          }
-        },
-        modes: {
-          repulse: {
-            distance: 100,
-            duration: 0.4
-          },
-          bubble: {
-            distance: 150,
-            size: 80, // Tamaño de burbuja al pasar el ratón
-            duration: 2,
-            opacity: 0.8, // Aumenta la opacidad para que brillen al pasar el ratón
-            speed: 3
-          }
-        }
+        events: {},
       },
       particles: {
         number: {
-          value: 100, // Aumenta la cantidad de partículas
+          value: 40,
           density: {
             enable: true,
             value_area: 1000
@@ -85,11 +54,11 @@ const ParticlesComponent = (props) => {
           }
         },
         size: {
-          value: { min: 1, max: 6 },
+          value: { min: 1, max: 4 },
           random: true,
           anim: {
             enable: true,
-            speed: 10,
+            speed: 6,
             size_min: 0.5
           }
         },
@@ -110,7 +79,7 @@ const ParticlesComponent = (props) => {
         },
         move: {
           enable: true,
-          speed: 1,
+          speed: 0.7,
           direction: "random",
           random: true,
           straight: false,
@@ -124,7 +93,11 @@ const ParticlesComponent = (props) => {
 
 
 
-  return <Particles id={props.id} init={particlesLoaded} options={options} />; 
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-0">
+      <Particles id={props.id} options={options} />
+    </div>
+  ); 
 };
 
 export default ParticlesComponent;
