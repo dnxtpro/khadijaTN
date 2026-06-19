@@ -16,6 +16,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             git config --global --add safe.directory /home/debian/khadijaTN
+            chown -R debian:debian /home/debian/khadijaTN
+            find /home/debian/khadijaTN -name "*.timestamp-*" -delete
             sudo -u debian git -C /home/debian/khadijaTN pull
             sudo -u debian npm --prefix /home/debian/khadijaTN run build
             rm -rf /var/www/k-tnana.com/*
