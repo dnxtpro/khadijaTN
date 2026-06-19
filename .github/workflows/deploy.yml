@@ -15,6 +15,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            git config --global --add safe.directory /home/debian/khadijaTN
             cd /home/debian/khadijaTN
             git pull
             npm run build
