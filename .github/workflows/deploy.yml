@@ -16,8 +16,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             git config --global --add safe.directory /home/debian/khadijaTN
-            cd /home/debian/khadijaTN
-            git pull
-            npm run build
+            sudo -u debian git -C /home/debian/khadijaTN pull
+            sudo -u debian npm --prefix /home/debian/khadijaTN run build
             rm -rf /var/www/k-tnana.com/*
-            cp -r dist/* /var/www/k-tnana.com/
+            cp -r /home/debian/khadijaTN/dist/* /var/www/k-tnana.com/
