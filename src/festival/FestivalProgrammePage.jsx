@@ -79,16 +79,6 @@ function EventContent({ event, isAr }) {
         </p>
       )}
 
-      {/* Moderator / animator */}
-      {event.moderator && (
-        <p className={styles.moderator}>
-          <span className={styles.moderatorLabel}>
-            {event.moderator.label} :
-          </span>{" "}
-          <RichText text={event.moderator.text} />
-        </p>
-      )}
-
       {/* Section heading for participant list */}
       {event.sectionLabel && (
         <p className={styles.sectionLabel}>{event.sectionLabel}</p>
@@ -113,6 +103,16 @@ function EventContent({ event, isAr }) {
             </motion.li>
           ))}
         </motion.ul>
+      )}
+
+      {/* Moderator / animator */}
+      {event.moderator && (
+        <p className={styles.moderator}>
+          <span className={styles.moderatorLabel}>
+            {event.moderator.label} :{" "}
+          </span>
+          <RichText text={event.moderator.text} />
+        </p>
       )}
 
       {/* Free-form closing note */}
