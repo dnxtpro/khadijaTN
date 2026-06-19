@@ -139,7 +139,7 @@ export const festivalDays = [
           sectionLabel: "Intervenantes :",
           participants: [
             "**Rabia Rihane** : l'écriture",
-            "**Mariam Tamsamani** : la poésie haïku",
+            "**Mariam Temsamani** : la poésie haïku",
             "**Naïma Zitan** : la mise en scène théâtrale",
             "**Touriya Al-Hadraoui** : le chant du Malhoun",
             "**Dania Achour** : la réalisation cinématographique",
@@ -154,12 +154,12 @@ export const festivalDays = [
             label: "تسيير",
             text: "حفيظة هيذور",
           },
-          sectionLabel: null,
+          sectionLabel: "التعريف بما سيقدمن:",
           participants: [
             "الكاتبة: ربيعة ريحان",
-            "مريم التسماني",
+            "مريم التمسماني: شعر الهايكو",
             "نعيمة زيطان",
-            "ثريا الخضراوي",
+            "ثريا الحضراوي",
             "دانية عاشور",
             "التشكيل: السعدية الماكي",
             "الإخراج المسرحي: طرب المامون",
@@ -183,7 +183,7 @@ export const festivalDays = [
           participants: [
             "Aïcha Basri",
             "Fatima Zahra Bennis",
-            "Mariam Tamsamani",
+            "Mariam Temsamani",
             "Mariam Kroudi",
           ],
           note: null,
@@ -200,8 +200,8 @@ export const festivalDays = [
           participants: [
             "عائشة البصري",
             "فاطمة الزهراء بنيس",
-            "مريم التسماني",
-            "مريم كلودي",
+            "مريم التمسماني",
+            "مريم كرودي",
           ],
           note: null,
         },
@@ -238,7 +238,7 @@ export const festivalDays = [
         ar: {
           time: "22:00",
           title: "سهرة فنية",
-          subtitle: "سهرة فنية لقصائد الملحون مع الفنانة ثريا الخضراوي",
+          subtitle: "سهرة فنية لقصائد الملحون مع الفنانة ثريا الحضراوي",
           moderator: null,
           sectionLabel: null,
           participants: [],
