@@ -213,8 +213,15 @@ function InfoSection() {
           <span className={styles.infoIcon}>📍</span>
           <div>
             <p className={styles.infoLabel}>Lieu · المكان</p>
-            <p className={styles.infoValue}>{festivalMeta.venue}</p>
-            <p className={styles.infoValue}>{festivalMeta.city}</p>
+            <p className={styles.infoValue}>{festivalMeta.venueFr}</p>
+            <p className={styles.infoValue}>{festivalMeta.cityFr}</p>
+            <p className={`${styles.infoValue} ${styles.infoValueAr}`} lang="ar">
+              {festivalMeta.venue}
+            </p>
+            <p className={`${styles.infoValue} ${styles.infoValueAr}`} lang="ar">
+              {festivalMeta.city}
+            </p>
+
           </div>
         </div>
         {/* Dates */}
@@ -245,6 +252,15 @@ function InfoSection() {
             </p>
           </div>
         </div>
+      </div>
+      <div className={styles.mapWrapper}>
+        <iframe
+          src="https://maps.google.com/maps?q=35.755872,-5.362629&z=16&output=embed"
+          className={styles.mapIframe}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Emplacement du festival · موقع المهرجان"
+        />
       </div>
     </motion.section>
   );
@@ -290,15 +306,25 @@ export default function FestivalProgrammePage() {
           </h1>
           <p className={styles.headerSub}>
             <span className={styles.headerSubFr}>
-              Festival culturel et artistique
+              {festivalMeta.themeFr}
             </span>
             <span className={styles.headerSubSep} aria-hidden="true">
               {" "}
               ·{" "}
             </span>
             <span className={styles.headerSubAr} lang="ar">
-              المهرجان الثقافي والفني
+              {festivalMeta.themeAr}
             </span>
+          </p>
+          <p className={styles.headerEdition}>
+            <span lang="ar">الدورة {festivalMeta.edition}</span>
+            <span aria-hidden="true"> · </span>
+            <span>Édition n°{festivalMeta.edition}</span>
+          </p>
+          <p className={styles.headerField}>
+            <span lang="ar">حقل: {festivalMeta.fieldAr}</span>
+            <span aria-hidden="true"> · </span>
+            <span>Champ : {festivalMeta.fieldFr}</span>
           </p>
           <p className={styles.headerDates}>
             <span lang="ar">{festivalMeta.datesAr}</span>

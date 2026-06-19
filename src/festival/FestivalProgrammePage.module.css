@@ -131,6 +131,23 @@
     opacity: 0.6;
 }
 
+.headerEdition {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--c-primary);
+    margin: 0.25rem 0 0;
+    letter-spacing: 0.04em;
+}
+
+.headerField {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--c-primary);
+    opacity: 0.8;
+    margin: 0.15rem 0 0;
+    letter-spacing: 0.03em;
+}
+
 .headerDates {
     font-size: 0.825rem;
     font-weight: 600;
@@ -505,6 +522,19 @@
     padding: 1.75rem;
 }
 
+.mapWrapper {
+    margin-top: 1.25rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mapIframe {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    display: block;
+}
+
 .infoGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -542,9 +572,10 @@
 .infoValueAr {
     font-family: var(--font-ar);
     direction: rtl;
-    text-align: left; /* natural RTL flow in a LTR layout line */
+    text-align: left;
     unicode-bidi: embed;
 }
+
 
 /* ── FOOTER ─────────────────────────────────────────────────────────────────── */
 .footer {
