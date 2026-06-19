@@ -344,7 +344,7 @@ export const festivalDays = [
             "**Dounia Belkacem**",
             "**Maria Khoussi Benito**",
             "**Rouyi** – présentation par **Fatima Zahra Sghir**",
-            "**Dalida BenSafaj** (réalisatrice)",
+            "**Dalida Benseffaj ** (réalisatrice)",
             "**Dania Achour** (réalisatrice)",
           ],
           note: null,
