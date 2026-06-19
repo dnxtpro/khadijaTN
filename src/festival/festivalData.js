@@ -74,7 +74,7 @@ export const festivalDays = [
           subtitle: null,
           moderator: {
             label: "تقديم",
-            text: "فاطمة الزهراء الصغير و لاليدا بيسماح",
+            text: "فاطمة الزهراء الصغير و داليدا بنسفاج",
           },
           sectionLabel: "بمشاركة الفنانات:",
           participants: [
@@ -366,7 +366,7 @@ export const festivalDays = [
             "دنيا بنقاسم",
             "مونية موسى بنبطو / خديجة طنانة",
             "أكد الموساوي",
-            "لاليدا بيسماح",
+            "داليدا بنسفاج",
             "داليا عاشور",
           ],
           note: null,
