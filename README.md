@@ -2,7 +2,7 @@
 
 Personal portfolio / landing page built with React 18, TypeScript, Vite, and Tailwind CSS. Features animated particle backgrounds and smooth page transitions.
 
-🔗 **Live:** [khadija-tn.vercel.app](https://khadija-tn.vercel.app) *(update with your actual URL)*
+🔗 **Live:** [f-tnana.com](https://f-tnana.com)
 
 ## Tech Stack
 
