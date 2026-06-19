@@ -1,648 +1,270 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   FestivalProgrammePage.module.css
-   Diseño bilingüe FR ← | → AR  ·  Inspirado en el poster del festival
-   Colores: #b3e0f5 · #3f545e · #1a2e35
-   Tipografía FR: Barlow Condensed / Inter
-   Tipografía AR: Noto Kufi Arabic
-   ───────────────────────────────────────────────────────────────────────────── */
-
-/* ── Variables ─────────────────────────────────────────────────────────────── */
 .page {
-    --c-primary: #b3e0f5; /* azul claro festival         */
-    --c-dark: #3f545e; /* azul grisáceo contraste      */
-    --c-darker: #2a3b43; /* oscuro para gradientes       */
-    --c-text: #1a2e35; /* texto oscuro principal       */
-    --c-muted: #4b6370; /* texto secundario             */
-    --c-bg: #eef6fb; /* fondo página (tono poster)   */
-    --c-surface: #ffffff; /* tarjetas / superficies       */
-    --c-border: #cddde5; /* bordes suaves                */
-    --c-divider: #b3e0f5; /* divisor central columnas     */
-    --font-fr: "Barlow Condensed", "Inter", system-ui, sans-serif;
-    --font-ar: "Noto Kufi Arabic", "Arial", sans-serif;
-    --font-body: "Inter", system-ui, -apple-system, sans-serif;
-
-    background-color: var(--c-bg);
-    min-height: 100vh;
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--c-text);
-    /* Cubre el fondo oscuro del wrapper global */
-    position: relative;
-    z-index: 0;
+  background: #ffffff;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
 }
 
-/* ── COMPACT HEADER ─────────────────────────────────────────────────────────── */
 .header {
-    background: linear-gradient(
-        135deg,
-        var(--c-darker) 0%,
-        var(--c-dark) 60%,
-        #4e6a75 100%
-    );
-    padding: 1.1rem 1.5rem 1rem;
-    text-align: center;
-    border-bottom: 3px solid var(--c-primary);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Subtle halo */
-.header::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        ellipse at 70% 50%,
-        rgba(179, 224, 245, 0.14) 0%,
-        transparent 65%
-    );
-    pointer-events: none;
-}
-
-/* Logo en la esquina superior derecha del header */
-.headerLogo {
-    position: absolute;
-    top: 50%;
-    right: 1.25rem;
-    transform: translateY(-50%);
-    z-index: 2;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-}
-
-.headerLogo:hover {
-    opacity: 1;
+  background: #faf8f5;
+  border-bottom: 1px solid #e8e3dc;
+  padding: 2rem 1.5rem;
+  text-align: center;
 }
 
 .headerInner {
-    position: relative;
-    z-index: 1;
-    /* Deja espacio para el logo a la derecha */
-    padding-right: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .headerTitle {
-    font-family: var(--font-fr);
-    font-weight: 900;
-    font-size: clamp(1.8rem, 5.5vw, 3rem);
-    color: #fff;
-    margin: 0 0 0.25rem;
-    line-height: 1.1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
+  font-family: "Barlow Condensed", "Inter", sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #2c1810;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
 }
 
-.titleAr {
-    font-family: var(--font-ar);
-    font-weight: 900;
-    letter-spacing: 0;
+.headerMeta {
+  font-size: 0.85rem;
+  color: #8a7a6a;
+  margin: 0.4rem 0 0;
+  letter-spacing: 0.04em;
 }
 
-.titleFr {
-    font-family: var(--font-fr);
-    letter-spacing: 0.03em;
-}
-
-.titleDot {
-    color: var(--c-primary);
-    font-weight: 300;
-    opacity: 0.7;
-}
-
-.headerSub {
-    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0 0 0.35rem;
-}
-
-.headerSubFr {
-    font-family: var(--font-fr);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-}
-.headerSubAr {
-    font-family: var(--font-ar);
-}
-.headerSubSep {
-    color: var(--c-primary);
-    opacity: 0.6;
-}
-
-.headerDates {
-    font-size: 0.825rem;
-    font-weight: 600;
-    color: var(--c-primary);
-    margin: 0;
-    letter-spacing: 0.03em;
-}
-
-/* ── DAY NAVIGATION ─────────────────────────────────────────────────────────── */
-.dayNav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--c-surface);
-    border-bottom: 1px solid var(--c-border);
-    display: flex;
-    gap: 0.6rem;
-    padding: 0.7rem 1.25rem;
-    box-shadow: 0 2px 10px rgba(63, 84, 94, 0.09);
-}
-
-.dayNavBtn {
-    flex: 1;
-    background: var(--c-dark);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition:
-        background 0.18s,
-        transform 0.1s,
-        box-shadow 0.18s;
-    font-family: var(--font-body);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-}
-
-.dayNavBtn:hover {
-    background: var(--c-darker);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(63, 84, 94, 0.22);
-}
-
-.dayNavBtn:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
-
-.navSep {
-    opacity: 0.45;
-    margin: 0 0.2rem;
-}
-.navAr {
-    font-family: var(--font-ar);
-    font-weight: 700;
-}
-
-/* ── COLUMN LABELS ──────────────────────────────────────────────────────────── */
-.colLabels {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: rgba(179, 224, 245, 0.18);
-    border-bottom: 1px solid rgba(179, 224, 245, 0.4);
-    padding: 0.35rem 1.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.colLabelFr {
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--c-dark);
-    text-align: left;
-}
-
-.colLabelAr {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0;
-    color: var(--c-dark);
-    text-align: right;
-    font-family: var(--font-ar);
-}
-
-/* ── MAIN ───────────────────────────────────────────────────────────────────── */
 .main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 0 3.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
 }
 
-/* ── DAY SECTION ────────────────────────────────────────────────────────────── */
 .daySection {
-    scroll-margin-top: 58px;
+  scroll-margin-top: 1rem;
 }
 
-/* Full-width bilingual day header */
-.dayHeader {
-    background: linear-gradient(90deg, var(--c-dark) 0%, #4e6a75 100%);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 0.9rem 1.5rem;
-    border-left: 5px solid var(--c-primary);
-    border-right: 5px solid var(--c-primary);
-    transform-origin: left center;
+.dayTitle {
+  font-family: "Barlow Condensed", "Inter", sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  color: #2c1810;
+  text-align: center;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #c59b6b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  line-height: 1.2;
 }
 
-.dayLabelFr {
-    font-family: var(--font-fr);
-    font-weight: 900;
-    font-size: clamp(1.1rem, 3.5vw, 1.55rem);
-    color: #fff;
-    text-align: left;
-    letter-spacing: 0.02em;
+.dayTitleSep {
+  color: #c59b6b;
+  font-weight: 300;
+  font-size: 1.4em;
 }
 
-.dayLabelAr {
-    font-family: var(--font-ar);
-    font-weight: 900;
-    font-size: clamp(1.1rem, 3.5vw, 1.55rem);
-    color: #fff;
-    text-align: right;
-    direction: rtl;
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0;
 }
 
-/* ── EVENT LIST ─────────────────────────────────────────────────────────────── */
-.eventList {
-    background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-top: none;
-    overflow: hidden;
-}
-
-/* ── EVENT ROW (bilingual 2-column grid) ────────────────────────────────────── */
-.eventRow {
-    display: grid;
-    grid-template-columns: 1fr 1px 1fr;
-    border-bottom: 1px solid #edf2f6;
-}
-
-.eventRow:last-child {
-    border-bottom: none;
-}
-
-/* Arabic-only event: FR column gets a muted tint */
-.arOnlyRow .colFr {
-    background: rgba(179, 224, 245, 0.04);
-}
-
-/* ── COLUMNS ────────────────────────────────────────────────────────────────── */
-.colFr {
-    padding: 1.25rem 1.4rem 1.25rem 1.5rem;
-    overflow: hidden;
-}
-
-/* Gradient center divider */
 .colDivider {
-    background: linear-gradient(
-        to bottom,
-        transparent 5%,
-        var(--c-divider) 25%,
-        var(--c-divider) 75%,
-        transparent 95%
-    );
-    width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #d6cec2 15%,
+    #d6cec2 85%,
+    transparent 100%
+  );
+  width: 1px;
 }
 
-.colAr {
-    padding: 1.25rem 1.5rem 1.25rem 1.4rem;
-    direction: rtl;
-    text-align: right;
-    overflow: hidden;
+.col {
+  padding: 0 1.5rem;
 }
 
-.colEmpty {
-    min-height: 3rem;
-    height: 100%;
+.col:last-child {
+  font-family: "Noto Kufi Arabic", "Inter", sans-serif;
 }
 
-/* ── EVENT CONTENT (shared) ─────────────────────────────────────────────────── */
-
-/* French content: LTR defaults */
-.frContent {
-    /* inherits page direction */
+.eventCard {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #f0ebe4;
 }
 
-/* Arabic content: font + direction */
-.arContent {
-    font-family: var(--font-ar);
-    direction: rtl;
-    text-align: right;
+.eventCard:last-child {
+  border-bottom: none;
 }
 
-/* ─ Event time ─ */
+.eventCardAr .eventTitle {
+  font-family: "Noto Kufi Arabic", "Inter", sans-serif;
+}
+
 .eventHeader {
-    display: flex;
-    align-items: baseline;
-    gap: 0.6rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-}
-/* With direction:rtl on .colAr, the flex row runs right→left:
-   first child (eventTime) appears on the far right, title follows leftward */
-
-.eventTime {
-    flex-shrink: 0;
-    font-family: var(--font-fr);
-    font-weight: 900;
-    font-size: clamp(1.3rem, 4vw, 1.75rem);
-    color: var(--c-dark);
-    line-height: 1;
-    letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
-.arContent .eventTime {
-    font-family: var(--font-ar);
-    font-size: clamp(1.3rem, 4vw, 1.75rem);
+.timeBadge {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #c59b6b;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
 }
 
-/* ─ Event title ─ */
 .eventTitle {
-    font-family: var(--font-fr);
-    font-weight: 700;
-    font-size: clamp(0.95rem, 2.8vw, 1.25rem);
-    color: var(--c-text);
-    margin: 0;
-    line-height: 1.25;
-    flex: 1;
-    min-width: 0;
+  font-family: "Barlow Condensed", "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: #2c1810;
+  margin: 0;
+  line-height: 1.2;
+  flex: 1;
 }
 
-.arContent .eventTitle {
-    font-family: var(--font-ar);
-    font-size: clamp(1rem, 2.8vw, 1.3rem);
-}
-
-/* ─ Subtitle ─ */
 .eventSubtitle {
-    font-size: 0.875rem;
-    color: var(--c-dark);
-    font-weight: 500;
-    font-style: italic;
-    margin: 0 0 0.65rem;
-    padding-inline-start: 0.75rem;
-    border-inline-start: 3px solid var(--c-primary);
-    line-height: 1.5;
+  font-size: 0.88rem;
+  color: #7a6a5a;
+  font-style: italic;
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
 }
 
-.arContent .eventSubtitle {
-    font-style: normal;
-    font-family: var(--font-ar);
-}
-
-/* ─ Moderator ─ */
 .moderator {
-    font-size: 0.845rem;
-    color: var(--c-muted);
-    margin: 0 0 0.6rem;
-    line-height: 1.5;
+  font-size: 0.83rem;
+  color: #7a6a5a;
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
 }
 
 .moderatorLabel {
-    font-weight: 700;
-    color: var(--c-dark);
+  font-weight: 700;
+  color: #3d3229;
 }
 
-/* ─ Section heading ─ */
 .sectionLabel {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--c-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    margin: 0 0 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #c59b6b;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0 0 0.35rem;
 }
 
-.arContent .sectionLabel {
-    text-transform: none;
-    letter-spacing: 0;
-    font-size: 0.8rem;
-    font-family: var(--font-ar);
-}
-
-/* ─ Participant list ─ */
 .participantList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
-/* French bullets: bullet on LEFT */
-.frContent .participantItem {
-    font-size: 0.875rem;
-    color: #2c4550;
-    padding-left: 1.1rem;
-    position: relative;
-    line-height: 1.55;
+.participantItem {
+  font-size: 0.88rem;
+  color: #3d3229;
+  line-height: 1.55;
+  padding-left: 1rem;
+  position: relative;
 }
 
-.frContent .participantItem::before {
-    content: "·";
-    position: absolute;
-    left: 0.1rem;
-    top: -0.05em;
-    color: var(--c-primary);
-    font-size: 1.4em;
-    font-weight: 900;
-    line-height: 1;
+.col:last-child .participantItem {
+  padding-left: 0;
+  padding-right: 1rem;
 }
 
-/* Arabic bullets: bullet on RIGHT */
-.arContent .participantItem {
-    font-size: 0.9rem;
-    color: #2c4550;
-    padding-right: 1.1rem;
-    padding-left: 0;
-    position: relative;
-    line-height: 1.6;
-    font-family: var(--font-ar);
+.participantItem::before {
+  content: "·";
+  position: absolute;
+  left: 0.1rem;
+  color: #c59b6b;
+  font-weight: 900;
 }
 
-.arContent .participantItem::before {
-    content: "·";
-    position: absolute;
-    right: 0.1rem;
-    left: auto;
-    top: -0.05em;
-    color: var(--c-primary);
-    font-size: 1.4em;
-    font-weight: 900;
-    line-height: 1;
+.col:last-child .participantItem::before {
+  left: auto;
+  right: 0.25rem;
 }
 
-/* ─ Note ─ */
 .note {
-    font-size: 0.875rem;
-    color: #2c4550;
-    margin: 0.5rem 0 0;
-    font-style: italic;
-    line-height: 1.5;
+  font-size: 0.88rem;
+  color: #3d3229;
+  margin: 0.6rem 0 0;
+  font-style: italic;
+  line-height: 1.5;
 }
 
-.arContent .note {
-    font-style: normal;
-    font-family: var(--font-ar);
-}
-
-/* ── PRACTICAL INFO ──────────────────────────────────────────────────────────── */
-.infoSection {
-    margin: 0 1.25rem;
-    background: rgba(179, 224, 245, 0.1);
-    border: 1px solid rgba(179, 224, 245, 0.45);
-    border-radius: 14px;
-    padding: 1.75rem;
-}
-
-.infoGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.25rem;
-}
-
-.infoBlock {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.7rem;
-}
-
-.infoIcon {
-    font-size: 1.4rem;
-    flex-shrink: 0;
-    line-height: 1.1;
-}
-
-.infoLabel {
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    color: var(--c-dark);
-    margin: 0 0 0.25rem;
-}
-
-.infoValue {
-    font-size: 0.9rem;
-    color: #2c4550;
-    margin: 0;
-    line-height: 1.55;
-}
-
-.infoValueAr {
-    font-family: var(--font-ar);
-    direction: rtl;
-    text-align: left; /* natural RTL flow in a LTR layout line */
-    unicode-bidi: embed;
-}
-
-/* ── FOOTER ─────────────────────────────────────────────────────────────────── */
 .footer {
-    text-align: center;
-    padding: 1.25rem 1rem;
-    font-size: 0.78rem;
-    color: #7a9aa8;
-    border-top: 1px solid var(--c-border);
-    background: var(--c-surface);
-    letter-spacing: 0.03em;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.78rem;
+  color: #a09387;
+  border-top: 1px solid #e8e3dc;
+  background: #faf8f5;
+  letter-spacing: 0.02em;
 }
 
-/* ── RESPONSIVE ─────────────────────────────────────────────────────────────── */
-@media (max-width: 640px) {
-    .header {
-        padding: 1rem 1rem 0.85rem;
-    }
+@media (max-width: 768px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
 
-    .dayNav {
-        padding: 0.6rem 0.875rem;
-        gap: 0.5rem;
-    }
+  .main {
+    padding: 2rem 1rem 3rem;
+    gap: 2.5rem;
+  }
 
-    .dayNavBtn {
-        font-size: 0.8rem;
-        padding: 0.5rem 0.75rem;
-    }
+  .columns {
+    grid-template-columns: 1fr;
+  }
 
-    .colLabels {
-        display: none;
-    }
+  .colDivider {
+    display: none;
+  }
 
-    /* Stack columns vertically on mobile */
-    .eventRow {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-    }
+  .col {
+    padding: 0;
+  }
 
-    /* Horizontal divider between FR and AR on mobile */
-    .colDivider {
-        height: 1px;
-        width: auto;
-        background: linear-gradient(
-            to right,
-            transparent,
-            var(--c-divider) 20%,
-            var(--c-divider) 80%,
-            transparent
-        );
-    }
+  .col:first-child {
+    border-bottom: 1px solid #e0d8cc;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 
-    .colFr {
-        padding: 1rem 1.25rem;
-    }
-    .colAr {
-        padding: 0.875rem 1.25rem 1rem;
-        background: rgba(179, 224, 245, 0.05);
-        border-top: none;
-    }
+  .dayTitle {
+    font-size: 1.15rem;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
 
-    .arOnlyRow .colFr {
-        display: none;
-    }
-
-    .colEmpty {
-        display: none;
-    }
-
-    .eventTime {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
-    }
-
-    .dayHeader {
-        padding: 0.8rem 1.25rem;
-    }
-
-    .infoSection {
-        margin: 0 1rem;
-        padding: 1.25rem;
-    }
-
-    .infoGrid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .main {
-        gap: 1.75rem;
-    }
+  .dayTitleSep {
+    display: none;
+  }
 }
 
-@media (max-width: 380px) {
-    .headerTitle {
-        font-size: 1.6rem;
-    }
+@media (max-width: 400px) {
+  .headerTitle {
+    font-size: 1.5rem;
+  }
 
-    .dayNavBtn {
-        font-size: 0.74rem;
-        padding: 0.45rem 0.6rem;
-    }
+  .eventHeader {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
 }
