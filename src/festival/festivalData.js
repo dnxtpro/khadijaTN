@@ -58,7 +58,7 @@ export const festivalDays = [
           subtitle: null,
           moderator: {
             label: "Présentation",
-            text: "**Fatima Zahra Sghier** et **Dalida BenSafaj**",
+            text: "**Fatima Zahra Sghier** et **Dalida Benseffaj **",
           },
           sectionLabel: "Artistes exposantes :",
           participants: [
